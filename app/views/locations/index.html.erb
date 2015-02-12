@@ -1,0 +1,61 @@
+<h1>Listing locations</h1>
+
+<head>
+<%= render 'header' %>
+</head>
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<body>
+
+<div id='map'></div>
+
+<script type="text/javascript">
+
+L.mapbox.accessToken = 'pk.eyJ1IjoidG9mdXRpZ2VyIiwiYSI6IlJuMjNxVmMifQ.qrv1pv_2p7_zDc9P22__0w';
+
+
+var map = L.mapbox.map('map', 'tofutiger.kgj1840m')
+<% @locations.each do |location| %>
+
+location.address
+var map_latitude = <%=  location.latitude %>;
+var map_longitude = <%=  location.longitude %>;
+
+var marker = L.marker([map_latitude,map_longitude]).addTo(map);
+
+<% end %>
+</script>
+
+  <tbody>
+
+
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.address %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
+        <td><%= link_to 'Show', location %></td>
+        <td><%= link_to 'Edit', edit_location_path(location) %></td>
+        <td><%= button_to 'Destroy', location_path(location), method: :delete, data: { confirm: 'Are you sure?', } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+</body>
+<%= link_to('go to users', {:controller => 'user', :action => 'index'}) %>
+<%= link_to 'New Location', new_location_path %>
+

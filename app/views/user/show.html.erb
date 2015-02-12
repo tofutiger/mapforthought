@@ -1,0 +1,8 @@
+<% provide(:title, @user.name) %>
+<h1>
+  <%= gravatar_for @user %>
+
+<td><%= @user.name %></td></h1>
+        <p>
+<%= render(:partial => "locations/form", :locals => {variable: @location}) %>
+        
