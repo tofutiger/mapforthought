@@ -1,8 +1,28 @@
 <% provide(:title, @user.name) %>
 <h1>
   <%= gravatar_for @user %>
-
+<%= image_tag @user.avatar.url(:thumb) %>
 <td><%= @user.name %></td></h1>
         <p>
-<%= render(:partial => "locations/form", :locals => {variable: @location}) %>
-        
+<h3> A summary of my awesome trips! </h3>
+<%= @user.description %><p>
+
+<h3> My provider! </h3>
+<%= @user.provider %><p>
+<h3> scholarships </h3>
+<%= @user.scholarships %><p>
+
+<h3> places ive been! </h3>
+<% @user.locations.each do |location| %>
+<%= location.address %>
+<% end %>
+
+<% @user.trip_images do |t| %> 
+  <%= t.photo_file_name %>
+  <%= image_tag t.photo_url %>
+<% end %>
+<p>
+
+<%= link_to("edit", {:action => 'edit', :id => @user.id}, :class => 'action show') %>
+<%= link_to('back', {:action => 'index'}) %>
+

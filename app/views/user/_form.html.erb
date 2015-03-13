@@ -1,0 +1,53 @@
+<td><%= f.label(:username) %></td>
+    <td><%= f.text_field(:username) %></td>
+  </tr>
+<tr>
+  <p>
+
+
+
+<th><%= f.label(:name, "Name") %></th>
+    <td><%= f.text_field(:name) %></td>
+    <p>
+    <th><%= f.label(:email, "Email ") %></th>
+    <td><%= f.text_field(:email) %></td>
+    <br>
+    <p>
+
+      
+ 
+ <%= f.fields_for :locations do |builder| %>
+        <fieldset>
+    <%= builder.label :address %><br>
+  <%= builder.country_select(:address) %>
+        </fieldset>
+        <% end %>  
+<p>
+  <% f.collection_select(:locations, Location.all, :id, :address, {prompt: "Select an Address"}) %>
+<%= f.label(:provider, "What was the name of your provider?") %></th>
+<br>
+    <td><%= f.text_field(:provider) %></td>
+<p>
+    <%= f.label(:scholarships, "did you have any scholarships?") %></th>
+    <br>
+    <td><%= f.text_field(:scholarships) %></td>
+
+<p>
+  <%= f.label(:description, "description of your time!") %><br>
+     <%= f.text_area :description, size: "60x12" %>
+
+<p>
+<p>
+ <p>
+
+    <%= f.label :trip_images, :class => 'control-label' %>
+    <div class="controls">
+      <!-- The magic is coming ...look at my eyes....shazammmm -->
+      <!-- Use HTML5 multiple attribute to enable multiple selection
+           and pass back to controller all files as an array, ready 
+           for paperclip!!
+           file_field_tag, since images is not a gallery attribute
+       -->
+      <%= file_field_tag "photos[]", type: :file, multiple: true %>
+
+    </div>

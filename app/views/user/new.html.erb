@@ -1,10 +1,11 @@
 <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+<%= form_for @user, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
 
-<th><%= f.label(:name, "Name") %></th>
-    <td><%= f.text_field(:name) %></td>
-    <p>
-    <th><%= f.label(:email, "Email ") %></th>
-    <td><%= f.text_field(:email) %></td>
-    <br>
-<%= submit_tag("create user") %>
+<%= render(:partial => "form", :locals => {:f => f}) %>
+
+ 
+  <p>
+<%= f.submit %>
   <% end %>
+   <% end %>
+ 

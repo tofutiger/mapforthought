@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209222011) do
+ActiveRecord::Schema.define(version: 20150312191356) do
 
   create_table "locations", force: true do |t|
     t.string   "address"
@@ -19,6 +19,31 @@ ActiveRecord::Schema.define(version: 20150209222011) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "locations_users", id: false, force: true do |t|
+    t.integer "location_id"
+    t.integer "user_id"
+  end
+
+  add_index "locations_users", ["location_id", "user_id"], name: "index_locations_users_on_location_id_and_user_id"
+
+  create_table "pictures", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trip_images", force: true do |t|
+    t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "user_id"
+    t.string   "user_token"
   end
 
   create_table "users", force: true do |t|
@@ -26,6 +51,17 @@ ActiveRecord::Schema.define(version: 20150209222011) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username",            limit: 25
+    t.text     "description"
+    t.string   "provider",            limit: 25
+    t.string   "scholarships"
+    t.string   "token"
+    t.integer  "location_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "password_digest"
   end
 
 end

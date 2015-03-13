@@ -1,4 +1,4 @@
-<h1>Listing locations</h1>
+<h1>Check out where everyones been</h1>
 
 <head>
 <%= render 'header' %>
@@ -32,7 +32,7 @@ var map_latitude = <%=  location.latitude %>;
 var map_longitude = <%=  location.longitude %>;
 
 var marker = L.marker([map_latitude,map_longitude]).addTo(map);
-
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 <% end %>
 </script>
 

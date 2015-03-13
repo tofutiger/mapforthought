@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-
+    #@user = User.find(params[:id])
   end
 
   # GET /locations/new
@@ -28,17 +28,15 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
-   respond_to do |format|
+   
+  
       if @location.save
-       format.html { redirect_to @location, notice: 'Location was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to(:action => 'index')
       else
-        format.html { render action: 'new' }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
+         redirect_to(:action => 'new')
       end
-    end
   end
+
 
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
@@ -73,6 +71,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:address, :latitude, :longitude)
+      params.require(:location).permit(:address, :latitude, :longitude, :user_id)
     end
 end

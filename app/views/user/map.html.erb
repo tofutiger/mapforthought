@@ -1,0 +1,54 @@
+<h1>Listing users</h1>
+
+<head>
+<%= render 'header' %>
+</head>
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<body>
+
+<div id='map'></div>
+
+<script type="text/javascript">
+
+L.mapbox.accessToken = 'pk.eyJ1IjoidG9mdXRpZ2VyIiwiYSI6IlJuMjNxVmMifQ.qrv1pv_2p7_zDc9P22__0w';
+
+
+var map = L.mapbox.map('map', 'tofutiger.kgj1840m')
+<% @users.each do |user| %>
+
+user.address
+var map_latitude = <%=  user.latitude %>;
+var map_longitude = <%=  user.longitude %>;
+
+var marker = L.marker([map_latitude,map_longitude]).addTo(map);
+
+<% end %>
+</script>
+
+  <tbody>
+
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.address %></td>
+        <td><%= user.latitude %></td>
+        <td><%= user.longitude %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= button_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?', } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

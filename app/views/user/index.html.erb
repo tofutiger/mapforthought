@@ -5,10 +5,16 @@
 <% @users.each do |user| %>
       <tr>
       	<br>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.id %></td>
-        <br>
+      
+        <td><h4><%= user.name %></h4></td>
+        <td><%= user.provider %></td><br>
+        <td><% user.locations.each do |location| %></td>
+          <%= location.address  %>
+
+          <br>
+        <% end %>
+         <br>
+        </td>
         <td class="actions">
 
           
@@ -19,6 +25,9 @@
 
        </tr>
         <% end %>
+
          <p>create a new user 
-       <br>
-          <%= link_to("new", {:action => 'new'}, :class => 'action new') %>
+       <P>
+          <%= link_to("new", {:action => 'new'}, :class => 'action new') %><br>
+          <%= link_to('back', {:controller => 'locations', :action => 'index'}) %>
+

@@ -1,4 +1,8 @@
 Map::Application.routes.draw do
+  #get "access/index"
+ # get "access/login"
+  resources :pictures
+
  #get "user/index"
  #get "user/show"
   #get "user/new"
