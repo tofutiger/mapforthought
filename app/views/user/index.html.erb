@@ -5,11 +5,12 @@
 <% @users.each do |user| %>
       <tr>
       	<br>
-      
+
+        <%= image_tag user.avatar.url(:thumb) %>
         <td><h4><%= user.name %></h4></td>
         <td><%= user.provider %></td><br>
         <td><% user.locations.each do |location| %></td>
-          <%= location.address  %>
+          <%= location.country_name  %>
 
           <br>
         <% end %>
@@ -18,7 +19,9 @@
         <td class="actions">
 
           
-        	<%= link_to("show", {:action => 'show', :id => user.id}, :class => 'action show') %>
+        <button type="button" class="btn btn-default navbar-btn">
+	         <%= link_to("see more!", {:action => 'show', :id => user.id}, :class => 'action show') %>
+        </button>
         	<%= link_to("edit", {:action => 'edit', :id => user.id}, :class => 'action show') %>
         	<%= link_to("delete", {:action => 'delete', :id => user.id}, :class => 'action delete') %>
         </td>
@@ -29,5 +32,9 @@
          <p>create a new user 
        <P>
           <%= link_to("new", {:action => 'new'}, :class => 'action new') %><br>
-          <%= link_to('back', {:controller => 'locations', :action => 'index'}) %>
+         
+<button type="button" class="btn btn-default navbar-btn">
+ <%= link_to('Home', {:controller => 'locations', :action => 'index'}) %>
+</button>
+          
 

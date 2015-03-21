@@ -3,15 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-   private
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  
+      protected
 
-  def confirm_logged_in
-  	unless session[:user_id]
-  		flash[:notice] = "please login"
-  		redirect_to(:controller => 'access', :action => 'login')
-  		return false
-  	else
-  		return true
-  	end  		
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name 
   end
+
 end

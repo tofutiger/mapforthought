@@ -9,8 +9,16 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require leaflet
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
  *= require_self
  *= require_tree .
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#globalheader {
+	width:100%;
+	background-color: #02376d;
+	height: 30px;
+}

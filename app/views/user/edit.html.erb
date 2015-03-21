@@ -1,6 +1,8 @@
 <h1>Change your settings!</h1>
 
-<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+<%= semantic_form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+
+
 
 <%= render(:partial => "form", :locals => {:f => f}) %>
 <p>
@@ -8,6 +10,6 @@
  
 
 
-<%= submit_tag("edit user") %> <p>
+<%= f.actions :submit, :cancel("edit user") %> <p>
 <%= link_to('back', {:action => 'index'}) %>
   <% end %>

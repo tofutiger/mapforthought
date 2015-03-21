@@ -19,6 +19,7 @@ Map::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
   Paperclip.options[:command_path] = "/cygdrive/c/Program Files/ImageMagick-6.9.0-Q16/convert"

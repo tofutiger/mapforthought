@@ -3,12 +3,16 @@
 <head>
 	
 	
-  <title>Map</title>
+  <title>Louis's Capstone!</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="globalheader">		
+		<%= render 'users/menu/registration_items' %>
+		<%= render 'users/menu/login_items' %>		
+	</div>
 
 <%= yield %>
 

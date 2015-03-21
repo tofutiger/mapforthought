@@ -1,10 +1,3 @@
-<td><%= f.label(:username) %></td>
-    <td><%= f.text_field(:username) %></td>
-  </tr>
-<tr>
-  <p>
-
-
 
 <th><%= f.label(:name, "Name") %></th>
     <td><%= f.text_field(:name) %></td>
@@ -24,6 +17,8 @@
         <% end %>  
 <p>
   <% f.collection_select(:locations, Location.all, :id, :address, {prompt: "Select an Address"}) %>
+
+  
 <%= f.label(:provider, "What was the name of your provider?") %></th>
 <br>
     <td><%= f.text_field(:provider) %></td>
@@ -38,16 +33,16 @@
 
 <p>
 <p>
+  
+  <%= f.label(:avatar, "upload your avatar!") %><br>
+  <%= f.file_field :avatar %>
+
+
  <p>
 
-    <%= f.label :trip_images, :class => 'control-label' %>
-    <div class="controls">
-      <!-- The magic is coming ...look at my eyes....shazammmm -->
-      <!-- Use HTML5 multiple attribute to enable multiple selection
-           and pass back to controller all files as an array, ready 
-           for paperclip!!
-           file_field_tag, since images is not a gallery attribute
-       -->
-      <%= file_field_tag "photos[]", type: :file, multiple: true %>
+<%= f.fields_for :trip_images do |gallery| %>
 
-    </div>
+<%= gallery.label :trip_images %><br>
+  <%= gallery.file_field :trip_images %>
+<% end %>
+

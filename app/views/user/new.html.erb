@@ -1,5 +1,6 @@
-<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
-<%= form_for @user, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+<%= semantic_form_for(:user, :url => {:action => 'create'}, :html => { :class => 'form-horizontal', multipart: true }) do |f| %>
+
+
 
 <%= render(:partial => "form", :locals => {:f => f}) %>
 
@@ -7,5 +8,3 @@
   <p>
 <%= f.submit %>
   <% end %>
-   <% end %>
- 

@@ -27,7 +27,10 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
+    puts params
+    puts current_user
     @location = Location.new(location_params)
+    @location.users << current_user
    
   
       if @location.save

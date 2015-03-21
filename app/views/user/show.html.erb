@@ -1,28 +1,42 @@
-<% provide(:title, @user.name) %>
-<h1>
-  <%= gravatar_for @user %>
-<%= image_tag @user.avatar.url(:thumb) %>
-<td><%= @user.name %></td></h1>
-        <p>
-<h3> A summary of my awesome trips! </h3>
-<%= @user.description %><p>
+<div id="main-container" class="container-fluid">
+	<div class="row">
 
-<h3> My provider! </h3>
-<%= @user.provider %><p>
-<h3> scholarships </h3>
-<%= @user.scholarships %><p>
+		<div id="username" class="col-md-4">
 
-<h3> places ive been! </h3>
-<% @user.locations.each do |location| %>
-<%= location.address %>
-<% end %>
+			<% provide(:title, @user.name) %>
+			<h1>
+			  
+			<%= image_tag @user.avatar.url(:thumb) %>
+			<td><%= @user.name %></td></h1>
+		        
+			 My provider! <br>
+			<%= @user.provider %><p>
+			 scholarships <br>
+			<%= @user.scholarships %><p>
 
-<% @user.trip_images do |t| %> 
-  <%= t.photo_file_name %>
-  <%= image_tag t.photo_url %>
-<% end %>
-<p>
+			 places ive been! <br>
+			<% @user.locations.each do |location| %>
+			<%= location.address %>
+			<% end %>
+		</div>
+
+		<div id="usersecondinfo" class="col-md-4">
+			<p>
+			<h3> A summary of my awesome trips!</h3>
+			<p>
+			<%= @user.description %><p>
+
+			<%= @user.trip_images do |t| %> 
+			   <%= image_tag t.photo_url %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
 
 <%= link_to("edit", {:action => 'edit', :id => @user.id}, :class => 'action show') %>
-<%= link_to('back', {:action => 'index'}) %>
+
+<button type="button" class="btn btn-default navbar-btn">
+	<%= link_to('back', {:action => 'index'}) %>
+</button>
 

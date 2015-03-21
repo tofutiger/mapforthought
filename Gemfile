@@ -6,6 +6,7 @@ gem 'rails', '4.0.8'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 #gem 'autoprefixer-rails'
@@ -17,6 +18,7 @@ gem 'sass-rails', '~> 4.0.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+gem 'cancancan', '~> 1.10'
 
 gem "nested_form"
 # Use CoffeeScript for .js.coffee assets and views
@@ -26,9 +28,13 @@ gem 'leaflet-rails', '~> 0.7.4'
 # gem 'therubyracer', platforms: :ruby
 gem 'protected_attributes'
 
+gem 'formtastic', '~> 3.0'
+
 gem 'geocoder'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem "jquery-fileupload-rails"
 
 gem "paperclip", "~> 4.2"
 

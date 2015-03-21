@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   
-  #before_action :confirm_logged_in
+ before_action :authenticate_user!
 
   def index
      @users = User.all
@@ -17,26 +17,21 @@ class UserController < ApplicationController
     
   def show
     @user = User.find(params[:id])
-    @trip_images = @user.trip_images
-   #@location = @location.find(params[:id])
+   # @trip_images = @user.trip_images
+   
   end
  
   def new
     @user = User.new
-    2.times { @user.locations.build}
-    #3.times { @user.trip_photos.build }
+    #2.times { @user.locations.build}
+    
   end
 
   def create
     @user = User.new(user_params)
     
     if @user.save
-      if params[:photos]
-        #===== The magic is here ;)
-        params[:photos].each { |photo|
-          @user.trip_images.create(photo: photo)
-        }
-      end
+      
         redirect_to(:action => 'index')
       
     else
@@ -47,8 +42,8 @@ class UserController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-   
-    #3.times { @user.trip_photos.build }
+    
+  
   end
 
   def update

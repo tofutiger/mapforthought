@@ -1,4 +1,5 @@
 Map::Application.routes.draw do
+  devise_for :users
   #get "access/index"
  # get "access/login"
   resources :pictures
@@ -12,6 +13,8 @@ Map::Application.routes.draw do
   resources :users
   resources :locations
 
+  root to: "locations#index"
+  
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
