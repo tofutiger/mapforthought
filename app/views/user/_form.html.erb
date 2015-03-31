@@ -9,16 +9,10 @@
 
       
  
- <%= f.fields_for :locations do |builder| %>
-        <fieldset>
-    <%= builder.label :address %><br>
-  <%= builder.country_select(:address) %>
-        </fieldset>
-        <% end %>  
+      
 <p>
-  <% f.collection_select(:locations, Location.all, :id, :address, {prompt: "Select an Address"}) %>
-
   
+
 <%= f.label(:provider, "What was the name of your provider?") %></th>
 <br>
     <td><%= f.text_field(:provider) %></td>

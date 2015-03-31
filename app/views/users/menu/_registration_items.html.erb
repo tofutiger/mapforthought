@@ -1,9 +1,10 @@
 <% if user_signed_in? %>
-  
+  <button type="button" class="btn btn-warning">
   <%= link_to('Edit Profile', edit_user_registration_path) %>
-  
+  </button>
 <% else %>
  
+ <button type="button" class="btn btn-success">
   <%= link_to('Register', new_user_registration_path)  %>
- 
+ </button>
 <% end %>

@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   
- before_action :authenticate_user!
+ 
 
   def index
      @users = User.all
@@ -50,6 +50,7 @@ class UserController < ApplicationController
     @user = User.find(params[:id])
    
     if @user.update_attributes(user_params)
+
       render('show')
     else
       render('edit')

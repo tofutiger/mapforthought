@@ -11,22 +11,42 @@
 		        
 			 My provider! <br>
 			<%= @user.provider %><p>
-			 scholarships <br>
+			 Scholarships <br>
 			<%= @user.scholarships %><p>
 
-			 places ive been! <br>
+			 Places ive been to! <br>
 			<% @user.locations.each do |location| %>
-			<%= location.address %>
+			<%= location.country_name  %><br>
 			<% end %>
+
+			<p>
+			<p>
+
+			<% if user_signed_in? %>
+	        <h3>talk to me bro </h3>
+	        <%= @user.email %>
+	        	<p>
+	            <button type="button" class="btn btn-danger">
+	            <%= link_to("delete", {:action => 'delete', :id => @user.id}, :class => 'action delete') %>
+
+	            <button type="button" class="btn btn-primary">
+				<%= link_to("edit", {:action => 'edit', :id => @user.id}, :class => 'action show') %>
+				</button>
+
+	        <% else %>
+	        Sign in to email me 
+	    	<% end %>
+	      
 		</div>
 
 		<div id="usersecondinfo" class="col-md-4">
 			<p>
-			<h3> A summary of my awesome trips!</h3>
+			<h3> A summary of my awesome time!</h3>
 			<p>
 			<%= @user.description %><p>
 
-			<%= @user.trip_images do |t| %> 
+			<%= @user.trip_images.each do |t| %> 
+			<%= t.photo_url %>
 			   <%= image_tag t.photo_url %>
 			<% end %>
 		</div>
@@ -34,9 +54,7 @@
 </div>
 
 
-<%= link_to("edit", {:action => 'edit', :id => @user.id}, :class => 'action show') %>
-
-<button type="button" class="btn btn-default navbar-btn">
+<button type="button" class="btn btn-info">
 	<%= link_to('back', {:action => 'index'}) %>
 </button>
 

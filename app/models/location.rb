@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
 	has_and_belongs_to_many :users
 
 	attr_accessible :address, :latitude, :longitude
-
+	accepts_nested_attributes_for :users
 	def country_name
     country = ISO3166::Country[address]
     

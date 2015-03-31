@@ -1,10 +1,69 @@
-<h1>Check out where everyones been</h1>
+
 
 <head>
 <%= render 'header' %>
 </head>
 <table>
-  <thead>
+ 
+<body> 
+  <div id="supercontainer">
+<div id='map'></div>
+
+<script type="text/javascript">
+
+L.mapbox.accessToken = 'pk.eyJ1IjoidG9mdXRpZ2VyIiwiYSI6IlJuMjNxVmMifQ.qrv1pv_2p7_zDc9P22__0w';
+
+var southWest = L.latLng(-40.90, 174.88),
+    northEast = L.latLng(56.13, -106.34),
+    bounds = L.latLngBounds(southWest, northEast);
+
+var map = L.mapbox.map('map', 'tofutiger.kgj1840m', {
+        minZoom: 2,
+        maxZoom: 12,
+        maxBounds: bounds,
+       
+    }).setView([35, -72.50], 3);
+
+
+<% @locations.each do |location| %>
+
+location.address
+var map_latitude = <%=  location.latitude %>;
+var map_longitude = <%=  location.longitude %>;
+
+var marker = L.marker([map_latitude,map_longitude]).addTo(map);
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.")
+<% end %>
+
+</script>
+
+
+
+<div id="buttonquote" class="col-xs-12 col-md-8">
+
+  <div id="quote" class="col-xs-6 col-md-4">
+    <h3>
+    “One’s destination is never a place, but a new way of seeing things.”<br>
+― Wayne Gretzky
+  <h3>
+  </div>
+
+
+  <div id="buttons_home" class="col-xs-6 col-md-4">
+    
+     <button type="button" class="btn btn-success btn-lg active">
+    <%= link_to 'make your mark!', new_location_path %>
+    </button>
+
+    <p>
+      <button type="button" class="btn btn-primary btn-lg active">
+        <%= link_to('EXPLORE!', {:controller => 'user', :action => 'index'}) %>
+      </button>
+    
+  </div>
+</div>
+
+<thead>
     <tr>
       <th>Address</th>
       <th>Latitude</th>
@@ -14,27 +73,6 @@
       <th></th>
     </tr>
   </thead>
-
-<body>
-
-<div id='map'></div>
-
-<script type="text/javascript">
-
-L.mapbox.accessToken = 'pk.eyJ1IjoidG9mdXRpZ2VyIiwiYSI6IlJuMjNxVmMifQ.qrv1pv_2p7_zDc9P22__0w';
-
-
-var map = L.mapbox.map('map', 'tofutiger.kgj1840m')
-<% @locations.each do |location| %>
-
-location.address
-var map_latitude = <%=  location.latitude %>;
-var map_longitude = <%=  location.longitude %>;
-
-var marker = L.marker([map_latitude,map_longitude]).addTo(map);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-<% end %>
-</script>
 
   <tbody>
 
@@ -51,16 +89,7 @@ marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
     <% end %>
   </tbody>
 </table>
-
-
-
-<br>
-</body>
-<div class="btn-group">
-  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-    <%= link_to('EXPLORE!', {:controller => 'user', :action => 'index'}) %>
-  </button>
-</div>
 <p>
-<%= link_to 'New Location', new_location_path %>
 
+</div>
+</body>

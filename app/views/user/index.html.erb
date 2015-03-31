@@ -1,40 +1,62 @@
-<%= pluralize(@users.size, 'user') %> found
+
+<h2><%= pluralize(@users.size, 'user') %> found! </h2>
 
 <p>
+<div id="container-fluid" >
+      
 
-<% @users.each do |user| %>
-      <tr>
-      	<br>
-
-        <%= image_tag user.avatar.url(:thumb) %>
-        <td><h4><%= user.name %></h4></td>
-        <td><%= user.provider %></td><br>
-        <td><% user.locations.each do |location| %></td>
-          <%= location.country_name  %>
-
-          <br>
-        <% end %>
-         <br>
-        </td>
-        <td class="actions">
-
+      <% @users.each do |user| %>
           
-        <button type="button" class="btn btn-default navbar-btn">
-	         <%= link_to("see more!", {:action => 'show', :id => user.id}, :class => 'action show') %>
-        </button>
-        	<%= link_to("edit", {:action => 'edit', :id => user.id}, :class => 'action show') %>
-        	<%= link_to("delete", {:action => 'delete', :id => user.id}, :class => 'action delete') %>
-        </td>
+  <div id="userblip" class="col-xs-6 col-md-4">  
+        
+    <div id="avatarinfo" >
+            <%= image_tag user.avatar.url(:small) %> 
 
-       </tr>
-        <% end %>
+     </div>
 
-         <p>create a new user 
-       <P>
-          <%= link_to("new", {:action => 'new'}, :class => 'action new') %><br>
-         
-<button type="button" class="btn btn-default navbar-btn">
- <%= link_to('Home', {:controller => 'locations', :action => 'index'}) %>
-</button>
+      <div id="userindexinfo">
+        <h3><%= user.name %></h3>
+
+          <b>Provider! </b>
+            <%= user.provider %><br>
+
+           <b>locations ive been! </b>
+
+            <% user.locations.each do |location| %>
+              <%= location.country_name  %>. 
+            <% end %>
+
+          <br> <b>scholarships: </b> <br>
+          <%= user.scholarships %><p>
+      </div>
           
+
+           
+<div id ="user_crud" >
+            <% if user_signed_in? %>
+            <button type="button" class="btn btn-primary active">
+            <%= link_to("see more!", {:action => 'show', :id => user.id}, :class => 'action show') %>
+           
+            <button type="button" class="btn btn-info">
+            <%= link_to("edit", {:action => 'edit', :id => user.id}, :class => 'action show') %>
+            </button>
+
+            <button type="button" class="btn btn-danger">
+            <%= link_to("delete", {:action => 'delete', :id => user.id}, :class => 'action delete') %>
+            </button>
+
+            <% else %>
+
+             <button type="button" class="btn btn-primary active">
+            <%= link_to("see more!", {:action => 'show', :id => user.id}, :class => 'action show') %>
+            </button>
+              <% end %>
+      </div>
+      
+ </div>  
+
+      <% end %>
+
+    
+</div>
 

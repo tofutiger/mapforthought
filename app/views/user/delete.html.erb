@@ -1,5 +1,14 @@
+<div id="deleteform">
+<%= image_tag @user.avatar.url(:thumb) %>
 <h1><%= @user.name %></h1>
+
+<h2> <mark>Is it something we said? </mark></h2>
 
 <%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| %>
 <%= submit_tag("delete user") %>
 <% end %>
+
+<button type="button" class="btn btn-info">
+	<%= link_to('back', {:action => 'index'}) %>
+</button>
+</div>

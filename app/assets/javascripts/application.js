@@ -15,6 +15,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cocoon
 //= require jquery-fileupload
 //= require_tree .
 

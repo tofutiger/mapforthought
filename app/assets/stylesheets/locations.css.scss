@@ -2,4 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map { height: 800px; }
+#supercontainer {
+	margin-right: 150px;
+    margin-left: 50px;
+	width: 90%;
+	float:left;
+	background-color: #ffcc00;
+	margin-top:2px;
+}
+
+#map { 
+	height: 800px; 
+	width: 100%;
+	margin-right:50%;
+	background-color: #003366;
+	float: left;
+}
+
+#buttons_home {
+	margin-top:25px;
+	float: left;
+}
+
+#quote {
+	float:left;
+	width:430px;
+}
+
+#buttonquote {
+	margin-top:25px;
+	margin-bottom:50px;
+	margin-right:50%;
+	margin-left:20%;
+	background-color: #ffcc00;
+	float:left;
+	width:700px;
+}
+
