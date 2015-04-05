@@ -7,17 +7,15 @@
     <br>
     <p>
 
-      
  
-      
 <p>
   
 
-<%= f.label(:provider, "What was the name of your provider?") %></th>
+<%= f.label(:provider, "*What was the name of your provider?") %></th>
 <br>
     <td><%= f.text_field(:provider) %></td>
 <p>
-    <%= f.label(:scholarships, "did you have any scholarships?") %></th>
+    <%= f.label(:scholarships, "*did you have any scholarships?") %></th>
     <br>
     <td><%= f.text_field(:scholarships) %></td>
 
@@ -34,9 +32,8 @@
 
  <p>
 
-<%= f.fields_for :trip_images do |gallery| %>
 
-<%= gallery.label :trip_images %><br>
-  <%= gallery.file_field :trip_images %>
-<% end %>
+<%= f.label(:photo, "upload a photo!") %><br>
+<%= f.file_field :photo %>
+
 

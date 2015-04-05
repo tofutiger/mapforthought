@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   
- 
+ #load_and_authorize_resources
 
   def index
      @users = User.all
@@ -23,7 +23,7 @@ class UserController < ApplicationController
  
   def new
     @user = User.new
-    #2.times { @user.locations.build}
+    
     
   end
 
@@ -42,7 +42,7 @@ class UserController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    
+    #authorize! :edit, @user
   
   end
 
@@ -59,6 +59,7 @@ class UserController < ApplicationController
 
   def delete
     @user = User.find(params[:id])
+    #authorize! :delete, @user
   
   end
 
@@ -70,7 +71,7 @@ class UserController < ApplicationController
  private
 
     def user_params
-      params.require(:user).permit(:name, :email, :description, :provider, :username, :password, :scholarships, :avatar, :trip_images, :locations_id, :photo, locations_attributes: [:id, :address])
+      params.require(:user).permit(:name, :email, :description, :photo, :provider, :username, :password, :scholarships, :avatar, :trip_images, :locations_id, :photo, locations_attributes: [:id, :address])
     end
 
 end

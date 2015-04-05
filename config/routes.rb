@@ -1,7 +1,7 @@
 Map::Application.routes.draw do
   devise_for :users
   #get "access/index"
- # get "access/login"
+ #get "access/login"
   resources :pictures
 
  #get "user/index"

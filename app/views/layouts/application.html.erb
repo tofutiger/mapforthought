@@ -10,16 +10,21 @@
 </head>
 <body>
 	<div id="globalheader">		
+		
 		<button type="button" class="btn btn-primary active">
         <%= link_to('Home', {:controller => 'locations', :action => 'index'}) %>
         </button>
     	<div id="usernav">
     		<% if user_signed_in? %>
 	        Welcome <%= current_user.name %>!
+
+	       <button type="button" class="btn btn-warning">
+        <%= link_to("Profile", {:controller => 'user', :action => 'show', :id => current_user.id}, :class => 'action show') %>
+        </button>
 	        <% else %>
 	        Sup dawg
 	    	<% end %>
-	        <%= render 'users/menu/registration_items' %>
+	        
 			<%= render 'users/menu/login_items' %>	
 		</div>	
 

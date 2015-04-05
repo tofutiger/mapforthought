@@ -1,0 +1,14 @@
+---
+:User:
+  :avatar:
+  - :medium
+  - :small
+  - :thumb
+  :photo:
+  - :medium
+  - :small
+  - :thumb
+:TripImage:
+  :photo:
+  - :medium
+  - :thumb

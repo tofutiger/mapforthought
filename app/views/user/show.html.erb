@@ -6,7 +6,7 @@
 			<% provide(:title, @user.name) %>
 			<h1>
 			  
-			<%= image_tag @user.avatar.url(:thumb) %>
+			<%= image_tag @user.avatar.url(:small) %>
 			<td><%= @user.name %></td></h1>
 		        
 			 My provider! <br>
@@ -25,14 +25,18 @@
 			<% if user_signed_in? %>
 	        <h3>talk to me bro </h3>
 	        <%= @user.email %>
+
 	        	<p>
-	            <button type="button" class="btn btn-danger">
-	            <%= link_to("delete", {:action => 'delete', :id => @user.id}, :class => 'action delete') %>
-
-	            <button type="button" class="btn btn-primary">
-				<%= link_to("edit", {:action => 'edit', :id => @user.id}, :class => 'action show') %>
-				</button>
-
+	        		            
+		            <button type="button" class="btn btn-danger">
+		            <%= link_to("delete", {:action => 'delete', :id => @user.id}, :class => 'action delete') %>
+		        	</button>
+	            
+	            
+		            <button type="button" class="btn btn-primary">
+					<%= link_to("edit", {:action => 'edit', :id => @user.id}, :class => 'action show') %>
+					</button>
+				
 	        <% else %>
 	        Sign in to email me 
 	    	<% end %>
@@ -45,14 +49,23 @@
 			<p>
 			<%= @user.description %><p>
 
-			<%= @user.trip_images.each do |t| %> 
+			<%= image_tag @user.photo.url(:medium) %>
+			<!--<%= @user.trip_images.each do |t| %> 
 			<%= t.photo_url %>
-			   <%= image_tag t.photo_url %>
-			<% end %>
+			   <%= image_tag t.photo_url(:thumb) %>
+			<% end %>-->
 		</div>
 	</div>
 </div>
 
+
+
+
+<!--<% for role in User::ROLES %>
+  <%= check_box_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"}%>
+  <%= label_tag "user_roles_#{role}", role.to_s.humanize %><br />
+<% end %>
+<%= hidden_field_tag "user[roles][]", "" %> -->
 
 <button type="button" class="btn btn-info">
 	<%= link_to('back', {:action => 'index'}) %>

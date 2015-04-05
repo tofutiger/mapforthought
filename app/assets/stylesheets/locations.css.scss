@@ -39,3 +39,27 @@
 	width:700px;
 }
 
+#newlocation {
+	margin-left:10px;
+	float:left;
+	width: 310px;
+	height: 500px;
+}
+
+#picturelocation {
+	margin-left:100px;
+}
+
+#newloccontainer {
+	transform: translateX(50%);
+	margin-top:25px;
+	float:left;
+	width:480px;
+	height:500px;
+	-webkit-border-radius: 5px;
+	background-color: #f2f2f0;
+}
+
+#newimage {
+	float:left;
+}
