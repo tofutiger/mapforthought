@@ -7,9 +7,9 @@ class UserController < ApplicationController
      
   end
 
-  #def map
+  def map
     # @users = User.all
-  #end
+  end
 
   def demo
     @users = User.all

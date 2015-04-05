@@ -9,21 +9,21 @@
 			<%= image_tag @user.avatar.url(:small) %>
 			<td><%= @user.name %></td></h1>
 		        
-			 My provider! <br>
+			 <%= link_to image_tag("Businessman-50.png", :alt => "favicon" ) %> 
 			<%= @user.provider %><p>
-			 Scholarships <br>
-			<%= @user.scholarships %><p>
-
-			 Places ive been to! <br>
+			
+			 <%= link_to image_tag("Suitcase-50.png", :alt => "favicon" ) %>
 			<% @user.locations.each do |location| %>
-			<%= location.country_name  %><br>
+			<%= location.country_name  %>,
 			<% end %>
-
+			<br>
+ 			<%= link_to image_tag("Money Bag-50.png", :alt => "favicon" ) %>
+			<%= @user.scholarships %><p>
 			<p>
 			<p>
 
 			<% if user_signed_in? %>
-	        <h3>talk to me bro </h3>
+	        <h3>Talk to me!</h3>
 	        <%= @user.email %>
 
 	        	<p>

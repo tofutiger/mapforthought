@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 	has_attached_file :avatar, :styles => { :medium => "300x250>", :small  => "150x100", :thumb => "100x100>" }, :default_url => "/images/default_small_avatar.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
  	
-  has_attached_file :photo, :styles => { :medium => "500x300>", :small  => "150x100", :thumb => "100x100>" }, :default_url => "/images/default_small_avatar.png"
+  has_attached_file :photo, :styles => { :medium => "400x300>", :small  => "150x100", :thumb => "100x100>" }, :default_url => "/images/default_small_avatar.png"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
 	validates :name, presence: true, length: { maximum: 25 }

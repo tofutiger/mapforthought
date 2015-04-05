@@ -6,19 +6,17 @@
 @import "bootstrap";
 
 #username {
-	margin-top:80px;
 	float: left;
-	width: 400px;
-	border-right-color: #cccccc;
-	border-right:solid 1px;
-	margin-left:20px;
-
+	width: 430px;
+	background-color: #f2f2f0;
+	right:5px;
 }
+
+
 #usersecondinfo {
-	margin-left:20px;
-	margin-top:80px;
 	float:left;
-	width:500px;
+	width:430px;
+	background-color: #f2f2f0;
 	
 }
 
@@ -29,6 +27,10 @@
 	
 } 
 
+#main-container {
+	margin-top:80px;
+	margin-left:20px;
+}
 
  #userblip {
 	float:left;
@@ -38,8 +40,8 @@
 	margin-bottom:5px;
 	margin-left:5px;
 	margin-right:5px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
+	-webkit-border-radius: 1px;
+	border-radius: 1px;
 
 	
 }
@@ -70,4 +72,83 @@
 	height:60px;
 	padding-top:10px;
 	padding-left:15px;
+}
+
+#home { 
+  background: url(piccy1.jpg) 50% 0 repeat fixed; min-height: 700px; 
+  height: 800px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+}
+ 
+#home article { 
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 150px; 
+  width: 100%; 
+  font-size: 450%
+}
+ 
+#about { 
+  background: url(about-bg.jpg) 50% 0 repeat fixed; min-height: 600px; 
+  height: 500px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+ 
+#about article { 
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 150px; 
+  width: 100%; 
+}
+
+#example { 
+  background: url(tibet.jpg) 50% 0 repeat fixed; min-height: 700px; 
+  height: 600px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+}
+
+#example article { 
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 150px; 
+  width: 100%; 
+  
+  font-size: 250%
+}
+
+#bottomquote { 
+  background-color: #ffcc00;
+  height: 600px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+#bottomquote article { 
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 150px; 
+  padding-left: 15x;
+  right: 15px;
+  width: 100%;
+  
+  font-size: 150%
 }

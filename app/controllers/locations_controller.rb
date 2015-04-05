@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
     @locations = Location.all
   end
 
+  
   # GET /locations/1
   # GET /locations/1.json
   def show

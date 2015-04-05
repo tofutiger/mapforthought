@@ -1,54 +1,27 @@
-<h1>Listing users</h1>
+<section id="home" data-type="background" data-speed="10" class="pages">     
+         <article></article>
+    </section>   
+     
+<section id="about" data-type="background" data-speed="10" class="pages">
+         <article>Hello!<br>
+I'm Louis Vazquez,
+Currently I live in Pittsburgh, I'm a student at Shepherd Univ. in West Virginia.
+I study Communications focusing in Web Design, and Graphic Design. 
+I have also been to school in Seoul, Korea and London, England.<br>
+<br>
+<%= link_to image_tag("anatomy.png", :alt => "favicon" ) %> </article>
+</section>
 
-<head>
-<%= render 'header' %>
-</head>
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<section id="example" data-type="background" data-speed="10" class="pages">
+         
+</section>
 
-<body>
-
-<div id='map'></div>
-
-<script type="text/javascript">
-
-L.mapbox.accessToken = 'pk.eyJ1IjoidG9mdXRpZ2VyIiwiYSI6IlJuMjNxVmMifQ.qrv1pv_2p7_zDc9P22__0w';
-
-
-var map = L.mapbox.map('map', 'tofutiger.kgj1840m')
-<% @users.each do |user| %>
-
-user.address
-var map_latitude = <%=  user.latitude %>;
-var map_longitude = <%=  user.longitude %>;
-
-var marker = L.marker([map_latitude,map_longitude]).addTo(map);
-
-<% end %>
-</script>
-
-  <tbody>
-
-
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.address %></td>
-        <td><%= user.latitude %></td>
-        <td><%= user.longitude %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= button_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?', } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<section id="bottomquote" data-type="background" data-speed="10" class="pages">
+         <article>Overall this project took me over 4 months to complete! Besides HTML and CSS I had no previous experience with any of the peices I used to make this. <br>Meaning I hadn't touched Ruby on Rails before hand. Overall this was really challenging. Many times I thought It would never get done! While it still isn't 100% of what I set out to make it still represents about 90% of the original idea, and I'm pretty happy how it has turned out. 
+          <br><h3>To see what else I have been up to visit my blog!<br>
+         http://lvazqu01.weebly.com/
+         <br>
+         <br>
+         or view the code for this project over in Github<br>
+        https://github.com/tofutiger/mapforthought</h3></article>
+</section>
