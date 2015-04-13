@@ -17,7 +17,7 @@ var southWest = L.latLng(-40.90, 174.88),
     northEast = L.latLng(56.13, -106.34),
     bounds = L.latLngBounds(southWest, northEast);
 
-var map = L.mapbox.map('map', 'tofutiger.kgj1840m', {
+var map = L.mapbox.map('map', 'tofutiger.ad6a8611', {
         minZoom: 2,
         maxZoom: 12,
         maxBounds: bounds,
@@ -32,6 +32,8 @@ var map_latitude = <%=  location.latitude %>;
 var map_longitude = <%=  location.longitude %>;
 
 var marker = L.marker([map_latitude,map_longitude]).addTo(map);
+
+
 marker.bindPopup("<b>Hello world!</b><br>I am a popup.")
 <% end %>
 
@@ -44,7 +46,7 @@ marker.bindPopup("<b>Hello world!</b><br>I am a popup.")
   <div id="quote" class="col-xs-6 col-md-4">
     <h3>
     “One’s destination is never a place, but a new way of seeing things.”<br>
-― Wayne Gretzky
+― Henry Miller
   <h3>
   </div>
 

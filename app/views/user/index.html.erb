@@ -2,11 +2,11 @@
 
 <div id="key">
 <%= pluralize(@users.size, 'user') %> found! 
-<%= link_to image_tag("Businessman-50.png", :alt => "favicon" ) %>
+<%= image_tag("Businessman-50.png", :alt => "favicon" ) %>
 provider
-<%= link_to image_tag("Suitcase-50.png", :alt => "favicon" ) %>
+<%=  image_tag("Suitcase-50.png", :alt => "favicon" ) %>
 Locations
-<%= link_to image_tag("Money Bag-50.png", :alt => "favicon" ) %>
+<%=  image_tag("Money Bag-50.png", :alt => "favicon" ) %>
 scholarships
 </div>
 <p>
@@ -25,17 +25,17 @@ scholarships
       <div id="userindexinfo">
         <h3><%= user.name %></h3>
 
-          <b><%= link_to image_tag("Businessman-50.png", :alt => "favicon" ) %> </b>
+          <b><%= image_tag("Businessman-50.png", :alt => "favicon" ) %> </b>
             <%= user.provider %><br>
 
 
-           <b><%= link_to image_tag("Suitcase-50.png", :alt => "favicon" ) %></b>
+           <b><%=  image_tag("Suitcase-50.png", :alt => "favicon" ) %></b>
 
             <% user.locations.each do |location| %>
               <%= location.country_name  %>. 
             <% end %>
 
-          <br> <b><%= link_to image_tag("Money Bag-50.png", :alt => "favicon" ) %> </b>
+          <br> <b><%= image_tag("Money Bag-50.png", :alt => "favicon" ) %> </b>
           <%= user.scholarships %><p>
       </div>
           

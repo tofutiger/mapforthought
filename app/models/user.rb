@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, length: { maximum: 50 }
 	attr_accessible :name, :email, :username, :password, :photo, :description, :roles, :provider, :scholarships, :avatar, :user_id, :photo, :locations_attributes, :trip_images
 	
-	
+
   
   
   
